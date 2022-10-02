@@ -25,12 +25,12 @@
       <td class="right" id="drinks">0</td>
     </tr>
     <tr>
-      <td>Joe's Special Offer</td>
-      <td class="right" id="discount">0</td>
-    </tr>
-    <tr>
       <td>Subtotal</td>
       <td class="right" id="subtotal">0</td>
+    </tr>
+    <tr>
+      <td>Joe's Special Discount</td>
+      <td class="right" id="discount">0</td>
     </tr>
     <tr>
       <td>Tax</td>
@@ -51,14 +51,11 @@
     var subtotal = 4.25 * hotdogs + 2.60 * fries + 1.5 * drinks;
 
     var discount = 0.00;
-
-    if (subtotal >= 20) {
+    if (subtotal >= 20)
       discount = subtotal * 0.10;
-      subtotal -= discount;
-    }
 
-    var tax = subtotal * 0.0625;
-    var total = subtotal + tax;
+    var tax = (subtotal - discount) * 0.0625;
+    var total = subtotal - discount + tax;
 
     document.getElementById("hotdogs").innerHTML = hotdogs;
     document.getElementById("fries").innerHTML = fries;
