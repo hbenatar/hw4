@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+
+<head>
+  <title> Joe's Hotdogs</title>
+  
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+ <h1>Joe's Hotdog Stand</h1>
+ <h2>YOUR ORDER:</h2>
+  
+  <table>
+    <tr>
+      <td>Hotdogs</td>
+      <td class="right" id="hotdogs">0</td>
+    </tr>
+    <tr>
+      <td>French Fries</td>
+      <td class="right" id="fries">0</td>
+    </tr>
+    <tr>
+      <td>Drinks</td>
+      <td class="right" id="drinks">0</td>
+    </tr>
+    <tr>
+      <td>Joe's Special Offer</td>
+      <td class="right" id="discount">0</td>
+    </tr>
+    <tr>
+      <td>Subtotal</td>
+      <td class="right" id="subtotal">0</td>
+    </tr>
+    <tr>
+      <td>Tax</td>
+      <td class="right" id="tax">0</td>
+    </tr>
+    <tr class="total">
+      <td>Total</td>
+      <td class="right" id="total">0</td>
+    </tr>
+  </table>
+
+  <script>
+
+    var hotdogs = prompt("How many hotdogs do you want?", 0);
+    var fries = prompt("How many fries do you want?", 0);
+    var drinks = prompt("How many drinks do you want?", 0);
+    
+    var subtotal = 4.25 * hotdogs + 2.60 * fries + 1.5 * drinks;
+
+    var discount = 0.00;
+
+    if (subtotal >= 20) {
+      discount = subtotal * 0.10;
+      subtotal -= discount;
+    }
+
+    var tax = subtotal * 0.0625;
+    var total = subtotal + tax;
+
+    document.getElementById("hotdogs").innerHTML = hotdogs;
+    document.getElementById("fries").innerHTML = fries;
+    document.getElementById("drinks").innerHTML = drinks;
+    document.getElementById("subtotal").innerHTML = "$" + subtotal.toFixed(2);
+    document.getElementById("discount").innerHTML = "-$" + discount.toFixed(2);
+    document.getElementById("tax").innerHTML = "$" + tax.toFixed(2);
+    document.getElementById("total").innerHTML = "$" + total.toFixed(2);
+    </script>
+</body>
+
+</html>
